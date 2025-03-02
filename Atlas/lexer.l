@@ -115,7 +115,7 @@
 
 [A-Za-z][A-Za-z0-9]* { printf("Identifiant : %s\n", yytext); }
 
-
+"%"             { printf("SYMBOLE: commentaire \n"); }
 ":"             { printf("SYMBOLE: Affectation de type \n"); }
 ";"            { printf("SYMBOLE: Fin instruction\n"); }
 [ \t\n\r]+      { /* Ignore les espaces, tabulations et retours à la ligne */ }

@@ -46,7 +46,7 @@ dict    { printf("TYPE: dictionnaire\n"); }
 "do"        { printf("INSTRUCTION: do\n"); }
 "otherwise"        { printf("INSTRUCTION: otherwise\n"); }
 
-"<-"    { printf("OPERATEUR: Affectation (:=)\n"); }
+"<-"    { printf("OPERATEUR: Affectation (<-)\n"); }
 "["     { printf("SYMBOLE: Debut d'un tableau\n"); }
 "]"     { printf("SYMBOLE: Fin d'un tableau\n"); }
 "{"     { printf("DEBUT BLOC\n"); }

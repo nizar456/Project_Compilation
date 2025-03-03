@@ -5,4 +5,4 @@ ffonct Fin fixe fonct fproc fpour frecord fsi
 ftantque jusqua lire long mod modif non 
 ou parmis partent pas pour proc Programme puiss 
 rc record repeter retourner sauter si sinon sreel 
-Tableau tantque TYPE valabs VAR vaut xou
+tableau tantque TYPE valabs VAR vaut xou

@@ -1,0 +1,11 @@
+x, y : ent;
+existe : bool;
+reponse : car;
+a, b : sreel;
+c, d : dreal;
+nom : chaine[8];
+'a' '9' '$'
+16
+16,99
+vrai faux
+"bonjour"

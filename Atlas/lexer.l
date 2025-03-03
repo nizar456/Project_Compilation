@@ -26,7 +26,7 @@
 "drecord"      { printf("DEBUT BLOC: Structure (record)\n"); }
 "frecord"      { printf("FIN BLOC: Structure (record)\n"); }
 
-"Tableau"      { printf("DEFINITION: Tableau\n"); }
+"tableau"      { printf("DEFINITION: Tableau\n"); }
 "\["           { printf("SYMBOLE: DEBUT Tableau\n"); }
 ".."            { printf("SYMBOLE: Separateur de bornes\n"); }
 "\]"           {printf("SYMBOLE: FIN Tableau\n");}

@@ -113,7 +113,7 @@
 [0-9]+          { printf("LITERAL ENTIER: %s\n", yytext); }
 [0-9]+\,?[0-9]* { printf("LITERAL REEL: %s\n", yytext); }
 
-[A-Za-z][A-Za-z0-9]* { printf("Identifiant : %s\n", yytext); }
+[A-Za-z_][A-Za-z0-9_]* { printf("Identifiant : %s\n", yytext); }
 
 "%"             { printf("SYMBOLE: commentaire \n"); }
 ":"             { printf("SYMBOLE: Affectation de type \n"); }

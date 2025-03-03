@@ -7,7 +7,7 @@
 
 %%
 
-"programme"    { printf("MOT-CLE: Programme\n"); }
+"Programme"    { printf("MOT-CLE: Programme\n"); }
 "CONST"        { printf("SECTION: CONST\n"); }
 "TYPE"         { printf("SECTION: TYPE\n"); }
 "VAR"          { printf("SECTION: VAR\n"); }

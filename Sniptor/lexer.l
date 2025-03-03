@@ -9,9 +9,12 @@
 "explain" { printf("MOT-CLE: explain\n"); }
 "protect" { printf("MOT-CLE: protect\n"); }
 "capture" { printf("MOT-CLE: capture\n"); }
+"raise" { printf("MOT-CLE: raise\n"); }
+
 "contains" { printf("MOT-CLE: contains\n"); }
 "size" { printf("MOT-CLE: size\n"); }
 "act" { printf("MOT-CLE: act\n"); }
+
 "case" { printf("MOT-CLE: case\n"); }
 "cut" { printf("MOT-CLE: cut\n"); }
 "skip" { printf("MOT-CLE: skip\n"); }

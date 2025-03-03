@@ -74,6 +74,9 @@ dict    { printf("TYPE: dictionnaire\n"); }
 
 [+\-*/=] { printf("OPERATEUR: %s\n", yytext); }
 "sq"      { printf("OPERATEUR: %s\n", yytext); }
+"%"       { printf("OPERATEUR: Modulo\n");}
+"!"       { printf("OPERATEUR: Factoriel\n");}
+"\^"      { printf("OPERATEUR: Puissance\n");}
 "|"       { printf("SYMBOLE: Valeur Absolu\n"); }
 
 "and"      { printf("OPERATEUR: %s\n", yytext); }

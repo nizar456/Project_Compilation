@@ -1,0 +1,6 @@
+max := 44;
+x := 0;
+tantque (x * x <= max) faire
+    x := x + 1;
+ftantque;
+ecrire(x - 1); 

@@ -1,0 +1,6 @@
+max := 44;
+x := 0;
+repeter
+    x := x + 1;
+jusqua (x * x > max);
+ecrire(x - 1);

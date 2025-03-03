@@ -34,7 +34,7 @@
 
 "de"            { printf("MOT-CLE: de\n"); }
 "pour"         { printf("BOUCLE: Pour\n"); }
-"jusqua"       { printf("CONDITION: Jusqu'à\n"); }
+"jusqua"       { printf("CONDITION: Jusqu'a\n"); }
 "pas"          { printf("INSTRUCTION: Pas (incrementation)\n"); }
 "fpour"        { printf("FIN BOUCLE: Pour\n"); }
 
@@ -42,7 +42,7 @@
 "faire"        { printf("INSTRUCTION: Faire\n"); }
 "ftantque"     { printf("FIN BOUCLE: Tant que\n"); }
 
-"repeter"      { printf("BOUCLE: Répéter\n"); }
+"repeter"      { printf("BOUCLE: Repeter\n"); }
 
 "si"           { printf("CONDITION: Si\n"); }
 "alors"        { printf("INSTRUCTION: Alors\n"); }
@@ -66,14 +66,15 @@
 "dfonct"       { printf("DEBUT BLOC: Fonction\n"); }
 "ffonct"       { printf("FIN: Fonction\n"); }
 "retourner"    { printf("INSTRUCTION: Retourner\n"); }
-"fixe"         { printf("PARAMETRE: Passé par valeur (fixe)\n"); }
-"modif"        { printf("PARAMETRE: Passé par adresse (modif)\n"); }
+"fixe"         { printf("PARAMETRE: Passe par valeur (fixe)\n"); }
+"modif"        { printf("PARAMETRE: Passe par adresse (modif)\n"); }
 
 "ecrire"     { printf("INSTRUCTION: Affichage \n"); }
+"lire"       { printf("INSTRUCTION:lecture \n"); }
 
-"long"        { printf("OPERATEUR CHAINE: Longueur d'une chaîne (long)\n"); }
+"long"        { printf("OPERATEUR CHAINE: Longueur d'une chaine (long)\n"); }
 "ascii"       { printf("OPERATEUR CARACTERE: Code ASCII (ascii)\n"); }
-"chr"         { printf("OPERATEUR CARACTERE: Caractère ASCII (chr)\n"); }
+"chr"         { printf("OPERATEUR CARACTERE: Caractere ASCII (chr)\n"); }
 
 "("           { printf("SYMBOLE: Debut d'une expression\n"); }
 ")"           { printf("SYMBOLE: Fin d'une expression\n"); }
@@ -84,10 +85,11 @@
 "/"           { printf("OPERATEUR ARITHMETIQUE: Division (/)\n"); }
 "!"           { printf("OPERATEUR ARITHMETIQUE: Factorielle (!)\n"); }
 "\^"          { printf("OPERATEUR ARITHMETIQUE: Puissance (^)\n"); }
-"div"         { printf("OPERATEUR ARITHMETIQUE: Division entière (div)\n"); }
+"puiss"       { printf("OPERATEUR ARITHMETIQUE:Puissance \n"); }
+"div"         { printf("OPERATEUR ARITHMETIQUE: Division entiere (div)\n"); }
 "mod"         { printf("OPERATEUR ARITHMETIQUE: Modulo (mod)\n"); }
 "b"           { printf("OPERATEUR ARITHMETIQUE: Puissance (b)\n"); }
-"rc"          { printf("OPERATEUR ARITHMETIQUE: Racine carrée (rc)\n"); }
+"rc"          { printf("OPERATEUR ARITHMETIQUE: Racine carree (rc)\n"); }
 "partent"     { printf("OPERATEUR ARITHMETIQUE: Partie entière (partent)\n"); }
 "valabs"      { printf("OPERATEUR ARITHMETIQUE: Valeur absolue (valabs)\n"); }
 

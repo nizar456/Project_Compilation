@@ -1030,7 +1030,7 @@ YY_RULE_SETUP
 case 24:
 YY_RULE_SETUP
 #line 37 "lexer.l"
-{ printf("CONDITION: Jusqu'à\n"); }
+{ printf("CONDITION: Jusqu'a\n"); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
@@ -1060,7 +1060,7 @@ YY_RULE_SETUP
 case 30:
 YY_RULE_SETUP
 #line 45 "lexer.l"
-{ printf("BOUCLE: Répéter\n"); }
+{ printf("BOUCLE: Repeter\n"); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
@@ -1160,12 +1160,12 @@ YY_RULE_SETUP
 case 50:
 YY_RULE_SETUP
 #line 69 "lexer.l"
-{ printf("PARAMETRE: Passé par valeur (fixe)\n"); }
+{ printf("PARAMETRE: Passe par valeur (fixe)\n"); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
 #line 70 "lexer.l"
-{ printf("PARAMETRE: Passé par adresse (modif)\n"); }
+{ printf("PARAMETRE: Passe par adresse (modif)\n"); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
@@ -1180,7 +1180,7 @@ YY_RULE_SETUP
 case 54:
 YY_RULE_SETUP
 #line 75 "lexer.l"
-{ printf("OPERATEUR CHAINE: Longueur d'une chaîne (long)\n"); }
+{ printf("OPERATEUR CHAINE: Longueur d'une chaine (long)\n"); }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
@@ -1190,7 +1190,7 @@ YY_RULE_SETUP
 case 56:
 YY_RULE_SETUP
 #line 77 "lexer.l"
-{ printf("OPERATEUR CARACTERE: Caractère ASCII (chr)\n"); }
+{ printf("OPERATEUR CARACTERE: Caractere ASCII (chr)\n"); }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
@@ -1245,7 +1245,7 @@ YY_RULE_SETUP
 case 67:
 YY_RULE_SETUP
 #line 89 "lexer.l"
-{ printf("OPERATEUR ARITHMETIQUE: Division entière (div)\n"); }
+{ printf("OPERATEUR ARITHMETIQUE: Division entiere (div)\n"); }
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
@@ -1260,12 +1260,12 @@ YY_RULE_SETUP
 case 70:
 YY_RULE_SETUP
 #line 92 "lexer.l"
-{ printf("OPERATEUR ARITHMETIQUE: Racine carrée (rc)\n"); }
+{ printf("OPERATEUR ARITHMETIQUE: Racine carree (rc)\n"); }
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
 #line 93 "lexer.l"
-{ printf("OPERATEUR ARITHMETIQUE: Partie entière (partent)\n"); }
+{ printf("OPERATEUR ARITHMETIQUE: Partie entiere (partent)\n"); }
 	YY_BREAK
 case 72:
 YY_RULE_SETUP

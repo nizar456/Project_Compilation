@@ -90,7 +90,7 @@
 "mod"         { printf("OPERATEUR ARITHMETIQUE: Modulo (mod)\n"); }
 "b"           { printf("OPERATEUR ARITHMETIQUE: Puissance (b)\n"); }
 "rc"          { printf("OPERATEUR ARITHMETIQUE: Racine carree (rc)\n"); }
-"partent"     { printf("OPERATEUR ARITHMETIQUE: Partie entière (partent)\n"); }
+"partent"     { printf("OPERATEUR ARITHMETIQUE: Partie entiere (partent)\n"); }
 "valabs"      { printf("OPERATEUR ARITHMETIQUE: Valeur absolue (valabs)\n"); }
 
 "et"         { printf("OPERATEUR LOGIQUE: ET\n"); }

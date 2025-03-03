@@ -69,8 +69,10 @@
 "fixe"         { printf("PARAMETRE: Passe par valeur (fixe)\n"); }
 "modif"        { printf("PARAMETRE: Passe par adresse (modif)\n"); }
 
-"ecrire"     { printf("INSTRUCTION: Affichage \n"); }
+"ecrire"     { printf("INSTRUCTION: Affichage \n");}
+"ecrirerc"   { printf("INSTRUCTION: Affichage plusieurs \n");}
 "lire"       { printf("INSTRUCTION:lecture \n"); }
+"lirerc"   { printf("INSTRUCTION: lecture plusieurs \n");}
 
 "long"        { printf("OPERATEUR CHAINE: Longueur d'une chaine (long)\n"); }
 "ascii"       { printf("OPERATEUR CARACTERE: Code ASCII (ascii)\n"); }

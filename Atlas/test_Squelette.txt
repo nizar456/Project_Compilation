@@ -1,0 +1,12 @@
+Programme Nom_du_programme;
+CONST
+
+TYPE
+
+VAR
+
+SOUS_PROG
+
+DEBUT
+
+FIN

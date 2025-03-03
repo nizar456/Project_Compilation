@@ -1,0 +1,8 @@
+alors autre ascii bool car cas chaine chr const 
+continuer dbloc de debut dfonctdiv dproc drecord 
+dreel ecrire ecrirerc ent et faire fbloc fcas 
+ffonct fin fixe fonct fproc fpour frecord fsi 
+ftantque jusqua lire lirerc long mod modif non 
+ou parmis partent pas pour proc programme puiss 
+rc record repeter retourner sauter si sinon sreel 
+struct tableau tantque type valabs var vaut xou

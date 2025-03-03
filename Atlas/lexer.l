@@ -53,14 +53,15 @@
 "parmis"       { printf("INSTRUCTION: Parmis\n"); }
 "autre"        { printf("INSTRUCTION: Autre\n"); }
 "sauter"       { printf("INSTRUCTION: Sauter\n"); }
+"continuer"    { printf("INSTRUCTION: Continuer\n"); }
 "fcas"         { printf("FIN CHOIX MULTIPLE: fcas\n"); }
 
 "dbloc"        { printf("DEBUT BLOC: dbloc\n"); }
 "fbloc"        { printf("FIN BLOC: fbloc\n"); }
 
-"proc"         { printf("DEFINITION: Procédure\n"); }
-"dproc"        { printf("DEBUT BLOC: Procédure\n"); }
-"fproc"        { printf("FIN: Procédure\n"); }
+"proc"         { printf("DEFINITION: Procedure\n"); }
+"dproc"        { printf("DEBUT BLOC: Procedure\n"); }
+"fproc"        { printf("FIN: Procedure\n"); }
 "fonct"        { printf("DEFINITION: Fonction\n"); }
 "dfonct"       { printf("DEBUT BLOC: Fonction\n"); }
 "ffonct"       { printf("FIN: Fonction\n"); }

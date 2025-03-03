@@ -1,0 +1,14 @@
+si (x mod 2 = 0) alors
+ecrire(x, " est pair");
+sinon
+ecrire(x, " est impair");
+fsi
+
+% instruction switch
+
+cas (nombre) parmis
+1 : ecrire("un"); sauter;
+2 : ecrire("deux"); sauter;
+3 : ecrire("trois"); sauter;
+autre : ecrire("je ne sais pas");
+fcas;

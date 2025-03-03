@@ -1,0 +1,6 @@
++ - * / ! div mod b rc partent valabs  
+et ou non xou  
+> >= < <= <> =  
+:=  
++ long  
+ascii chr  

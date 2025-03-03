@@ -72,7 +72,7 @@
 "ecrire"     { printf("INSTRUCTION: Affichage \n");}
 "ecrirerc"   { printf("INSTRUCTION: Affichage plusieurs \n");}
 "lire"       { printf("INSTRUCTION:lecture \n"); }
-"lirerc"   { printf("INSTRUCTION: lecture plusieurs \n");}
+"lirerc"     { printf("INSTRUCTION: lecture plusieurs \n");}
 
 "long"        { printf("OPERATEUR CHAINE: Longueur d'une chaine (long)\n"); }
 "ascii"       { printf("OPERATEUR CARACTERE: Code ASCII (ascii)\n"); }
@@ -101,9 +101,9 @@
 "xou"        { printf("OPERATEUR LOGIQUE: XOR (xou)\n"); }
 
 ">"           { printf("OPERATEUR COMPARAISON: Superieur (>)\n"); }
-">="          { printf("OPERATEUR COMPARAISON: Superieur ou égal (>=)\n"); }
+">="          { printf("OPERATEUR COMPARAISON: Superieur ou egal (>=)\n"); }
 "<"           { printf("OPERATEUR COMPARAISON: Inferieur (<)\n"); }
-"<="          { printf("OPERATEUR COMPARAISON: Inferieur ou égal (<=)\n"); }
+"<="          { printf("OPERATEUR COMPARAISON: Inferieur ou egal (<=)\n"); }
 "="           { printf("OPERATEUR COMPARAISON: Egal (=)\n"); }
 "<>"          { printf("OPERATEUR COMPARAISON: Different (<>)\n"); }
 

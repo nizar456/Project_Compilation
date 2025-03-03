@@ -1,0 +1,7 @@
+s := 0
+pour i de 1 jusqua 3 faire
+    dbloc
+    s := s + i * i;
+    ecrire("s = ", s);
+    fbloc;
+fpour;

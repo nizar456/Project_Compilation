@@ -1,0 +1,15 @@
+proc saluer(fixe message : chaine)
+dproc
+ecrirerc(message);
+fproc;
+
+fonct somme(fixe n : ent) : ent
+var
+s, i : ent; % variables locales de la fonction
+dfonct
+s := 0;
+pour i de 1 jusqua n faire
+s := s + i;
+fpour
+retourner s;
+ffonct;

@@ -1,0 +1,7 @@
+x := (a + 5!) * valabs(3 - 7);
+
+lire(a);
+lirerc(b, c);
+
+ecrirerc("bonjour");
+ecrire(a, " + ", b, " = ", a + b);

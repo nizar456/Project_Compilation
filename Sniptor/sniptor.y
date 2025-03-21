@@ -7,13 +7,14 @@
 %token COMPLEXITY EXPLAIN PROTECT CAPTURE RAISE
 %token CONTAINS SIZE ACT CASE CUT SKIP
 %token CREATE FUNCTION PROCEDURE TYPE SHOW ENTER
-%token INT FLT CHR DBL STR BOL LST DICT
+%token INT FLT CHR DBL STR BOL LST DICT TEXT
 %token TRUE FALSE REPEAT FOR WHILE FROM TO
 %token WHEN DO OTHERWISE ASSIGN LBRACKET RBRACKET
 %token LBRACE RBRACE LPAREN RPAREN END_INSTR COLON
 %token RETURN_FUNC CONST_MARKER COMMENT_START COMMENT_END SYNTAX_HELP 
 %token GT GTE LT LTE EQ NEQ SQ MOD FACT POW ABS
 %token AND OR NOT XOR STRING CHAR NUMBER REAL IDENTIFIER UNKNOWN
+%token NEGATIVE_VALUE_ERROR ZERO_DIVISION_ERROR
 
 
 %%
@@ -75,7 +76,7 @@ expression: expression '+' expression
 conditional_statement: ACT '{' when_clause otherwise_clause '}'
                      ;
 
-when_clause: WHEN '(' condition ')' DO '{' instruction_list '}'
+when_clause: WHEN '(' expression ')' DO '{' instruction_list '}'
            ;
 
 otherwise_clause: OTHERWISE '{' instruction_list '}'
@@ -139,7 +140,7 @@ argument: expression
 error_handling: PROTECT '{' instruction_list '}' CAPTURE '(' error_type ')' '{' instruction_list '}'
               ;
 
-error_type: 'ZeroDivisionError' | 'NegativeValueError' | IDENTIFIER
+error_type: ZERO_DIVISION_ERROR | NEGATIVE_VALUE_ERROR | IDENTIFIER
           ;
 
 explain_statement: EXPLAIN '{' instruction_list '}'

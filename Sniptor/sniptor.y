@@ -97,10 +97,10 @@ loop_statement: REPEAT '{' for_loop '}'
 for_loop: FOR '(' IDENTIFIER FROM NUMBER TO NUMBER ')' DO '{' instruction_list '}'
         ;
 
-while_loop: WHILE '(' condition ')' DO '{' instruction_list '}'
+while_loop: WHILE '(' expression ')' DO '{' instruction_list '}'
           ;
 
-do_while_loop: DO '{' instruction_list '}' WHILE '(' condition ')'
+do_while_loop: DO '{' instruction_list '}' WHILE '(' expression ')'
              ;
 
 input_statement: ENTER STRING END_INSTR

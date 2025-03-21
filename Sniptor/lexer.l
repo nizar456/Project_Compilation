@@ -1,105 +1,104 @@
 %{
-#include <stdio.h>
+#include "sniptor.tab.h"  // Inclure le fichier d'en-tête généré par Bison
 %}
-    
+
 %option noyywrap
-    
+
 %%
-"complexity" { printf("MOT-CLE: complexity\n"); }
-"explain" { printf("MOT-CLE: explain\n"); }
-"protect" { printf("MOT-CLE: protect\n"); }
-"capture" { printf("MOT-CLE: capture\n"); }
-"raise" { printf("MOT-CLE: raise\n"); }
 
-"contains" { printf("MOT-CLE: contains\n"); }
-"size" { printf("MOT-CLE: size\n"); }
-"act" { printf("MOT-CLE: act\n"); }
+"complexity"    { return COMPLEXITY; }
+"explain"       { return EXPLAIN; }
+"protect"       { return PROTECT; }
+"capture"       { return CAPTURE; }
+"raise"         { return RAISE; }
 
-"case" { printf("MOT-CLE: case\n"); }
-"cut" { printf("MOT-CLE: cut\n"); }
-"skip" { printf("MOT-CLE: skip\n"); }
+"contains"      { return CONTAINS; }
+"size"          { return SIZE; }
+"act"           { return ACT; }
 
-"create" { printf("MOT-CLE: create\n"); }
-"function" { printf("DEFINITION: Fonction\n"); }
-"procedure" { printf("DEFINITION: Procédure\n"); }
-"type" { printf("MOT-CLE: type\n"); }
+"case"          { return CASE; }
+"cut"           { return CUT; }
+"skip"          { return SKIP; }
 
-show    { printf("COMMANDE: affichage\n"); }
-enter   { printf("COMMANDE: lecture\n"); }
+"create"        { return CREATE; }
+"function"      { return FUNCTION; }
+"procedure"     { return PROCEDURE; }
+"type"          { return TYPE; }
 
-int     { printf("TYPE: int\n"); }
-flt   { printf("TYPE: float\n"); }
-chr    { printf("TYPE: char\n"); }
-dbl  { printf("TYPE: double\n"); }
-str     { printf("TYPE: string\n"); }
-bol     { printf("TYPE: booleen\n"); }
-lst     { printf("TYPE: list\n"); }
-dict    { printf("TYPE: dictionnaire\n"); }
+"show"          { return SHOW; }
+"enter"         { return ENTER; }
 
-"True"         { printf("BOOL: True\n"); }
-"False"         { printf("BOOL: False\n"); }
+"int"           { return INT; }
+"flt"           { return FLT; }
+"chr"           { return CHR; }
+"dbl"           { return DBL; }
+"str"           { return STR; }
+"bol"           { return BOL; }
+"lst"           { return LST; }
+"dict"          { return DICT; }
 
-"repeat" { printf("MOT-CLE: repeat\n"); }
-"for"         { printf("BOUCLE: for\n"); }
-"while"         { printf("BOUCLE: while\n"); }
-"from" { printf("MOT-CLE: from\n"); }
-"to"   { printf("Separateur de bornes\n"); }
+"True"          { return TRUE; }
+"False"         { return FALSE; }
 
-"when"           { printf("CONDITION: when\n"); }
-"do"        { printf("INSTRUCTION: do\n"); }
-"otherwise"        { printf("INSTRUCTION: otherwise\n"); }
+"repeat"        { return REPEAT; }
+"for"           { return FOR; }
+"while"         { return WHILE; }
+"from"          { return FROM; }
+"to"            { return TO; }
 
-"<-"    { printf("OPERATEUR: Affectation (<-)\n"); }
-"["     { printf("SYMBOLE: Debut d'un tableau\n"); }
-"]"     { printf("SYMBOLE: Fin d'un tableau\n"); }
-"{"     { printf("DEBUT BLOC\n"); }
-"}"     { printf("FIN BLOC\n"); }
-"("  { printf("SYMBOLE: Debut d'une expression\n"); }
-")"  { printf("SYMBOLE: Fin d'une expression\n"); }
-"::" { printf("SYMBOLE: Fin instruction\n"); }
-":" { printf("SYMBOLE: %s\n", yytext); }
-"=>" { printf("SYMBOLE: RETOUR_FONCTION\n"); }
-"#"  { printf("SYMBOLE: CONST_MARKER\n"); }
-"\[\^" { printf("SYMBOLE: COMMENT_START\n"); }
-"\^\]" { printf("SYMBOLE: COMMENT_END\n"); }
-"--" { printf("SYMBOLE: SYNTAX_HELP\n"); } 
+"when"          { return WHEN; }
+"do"            { return DO; }
+"otherwise"     { return OTHERWISE; }
 
-"gt"           { printf("OPERATEUR COMPARAISON: %s\n", yytext); }
-"gte"          { printf("OPERATEUR COMPARAISON: %s\n", yytext); }
-"lt"           { printf("OPERATEUR COMPARAISON: %s\n", yytext); }
-"lte"          { printf("OPERATEUR COMPARAISON: %s\n", yytext); }
-"eq"           { printf("OPERATEUR COMPARAISON: %s\n", yytext); }
-"neq"          { printf("OPERATEUR COMPARAISON: %s\n", yytext); }
+"<-"            { return ASSIGN; }
+"["             { return LBRACKET; }
+"]"             { return RBRACKET; }
+"{"             { return LBRACE; }
+"}"             { return RBRACE; }
+"("             { return LPAREN; }
+")"             { return RPAREN; }
+"::"            { return END_INSTR; }
+":"             { return COLON; }
+"=>"            { return RETURN_FUNC; }
+"#"             { return CONST_MARKER; }
+"\[\^"          { return COMMENT_START; }
+"\^\]"          { return COMMENT_END; }
+"--"            { return SYNTAX_HELP; }
 
+"gt"            { return GT; }
+"gte"           { return GTE; }
+"lt"            { return LT; }
+"lte"           { return LTE; }
+"eq"            { return EQ; }
+"neq"           { return NEQ; }
 
-[+\-*/=] { printf("OPERATEUR: %s\n", yytext); }
-"sq"      { printf("OPERATEUR: %s\n", yytext); }
-"%"       { printf("OPERATEUR: Modulo\n");}
-"!"       { printf("OPERATEUR: Factoriel\n");}
-"\^"      { printf("OPERATEUR: Puissance\n");}
-"|"       { printf("SYMBOLE: Valeur Absolu\n"); }
+[+\-*/=]        { return yytext[0]; // Retourne directement le caractère pour les opérateurs}  
+"sq"            { return SQ; }
+"%"             { return MOD; }
+"!"             { return FACT; }
+"\^"            { return POW; }
+"|"             { return ABS; }
 
-"and"      { printf("OPERATEUR: %s\n", yytext); }
-"or"      { printf("OPERATEUR: %s\n", yytext); }
-"not"      { printf("OPERATEUR: %s\n", yytext); }
-"xor"      { printf("OPERATEUR: %s\n", yytext); }
+"and"           { return AND; }
+"or"            { return OR; }
+"not"           { return NOT; }
+"xor"           { return XOR; }
 
-\"[^\"]*\"       { printf("CHAINE: %s\n", yytext); }
-\'[^\']\'       { printf("CHAR: %s\n", yytext); }
+\"[^\"]*\"      { yylval.str = strdup(yytext); return STRING; // Retourne une chaîne de caractères}  
+\'[^\']\'       { yylval.chr = yytext[1]; return CHAR; // Retourne un caractère}         
 
-[0-9]+          { printf("ENTIER: %s\n", yytext); }
-[0-9]+\.?[0-9]* { printf("REEL: %s\n", yytext); } 
+[0-9]+          { yylval.num = atoi(yytext); return NUMBER; // Retourne un entier}    
+[0-9]+\.?[0-9]* { yylval.real = atof(yytext); return REAL; // Retourne un réel}     
 
-[a-zA-Z_][a-zA-Z0-9_]* { printf("IDENTIFIANT: %s\n", yytext); }
+[a-zA-Z_][a-zA-Z0-9_]* { yylval.id = strdup(yytext); return IDENTIFIER; // Retourne un identifiant}  
 
 [ \t\n\r]+      { /* Ignore les espaces, tabulations et retours à la ligne */ }
 
-. { printf("CARACTERE INCONNU: %s\n", yytext); }
-    
+.               { return UNKNOWN; // Retourne un token inconnu pour les caractères non reconnus}  
+
 %%
-    
+
 int main() {
-    yylex(); // Lancer l'analyse lexicale
+    yylex();  // Lancer l'analyse lexicale
     return 0;
 }
-   

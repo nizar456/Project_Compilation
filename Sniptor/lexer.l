@@ -1,5 +1,7 @@
 %{
-#include "sniptor.tab.h"  
+#include "sniptor.tab.h" 
+#include "common.h"
+void update_position();
 %}
 
 %option noyywrap
@@ -87,18 +89,25 @@
 "NegativeValueError" { return NEGATIVE_VALUE_ERROR; }
 "ZeroDivisionError"  { return ZERO_DIVISION_ERROR; }
 
-\"[^\"]*\"      { yylval.str = strdup(yytext); return STRING; }  
-\'[^\']\'       { yylval.chr = yytext[1]; return CHAR; }         
+\"[^\"]*\"      { yylval.str = strdup(yytext); update_position(); return STRING; }  
+\'[^\']\'       { yylval.chr = yytext[1]; update_position(); return CHAR; }         
 
-[0-9]+          { yylval.num = atoi(yytext); return NUMBER; }    
-[0-9]+\.?[0-9]* { yylval.real = atof(yytext); return REAL; }     
+[0-9]+          { yylval.num = atoi(yytext); update_position(); return NUMBER; }    
+[0-9]+\.?[0-9]* { yylval.real = atof(yytext); update_position(); return REAL; }     
 
-[a-zA-Z_][a-zA-Z0-9_]* { yylval.str = strdup(yytext); return IDENTIFIER; } 
-[a-zA-Z0-9_]* { yylval.str = strdup(yytext); return TEXT; } 
+[a-zA-Z_][a-zA-Z0-9_]* { yylval.str = strdup(yytext); update_position(); return IDENTIFIER; } 
+[a-zA-Z0-9_]* { yylval.str = strdup(yytext); update_position(); return TEXT; } 
 
-[ \t\n\r]+      { /* Ignore les espaces, tabulations et retours à la ligne */ }
+\n              { yylloc.first_line++; yylloc.first_column = 1; }
+[ \t\r]+        { yylloc.first_column += yyleng; }
 
-.               { return UNKNOWN; }  
+.               { yylloc.first_column++; }  
 
 %%
+
+void update_position() {
+    yylloc.first_column += yyleng;
+    yylloc.last_line = yylloc.first_line;
+    yylloc.last_column = yylloc.first_column;
+}
 

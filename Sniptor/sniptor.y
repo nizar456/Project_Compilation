@@ -1,12 +1,16 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include "common.h"
 
 int yylex(void);
 void yyerror(const char *s);
 int is_valid = 1;
 
+
 %}
+
+%locations
 
 %union {
     char *str;  // Pour les chaînes de caractères
@@ -172,16 +176,18 @@ comment: COMMENT_START TEXT COMMENT_END
 %%
 
 int main() {
+    yylloc.first_line = 1;
+    yylloc.first_column = 1;
     yyparse();
     if (is_valid) {
         printf("Grammaire valide\n");
     } else {
-        printf("Erreur\n");
+        printf(" ");
     } 
     return 0;
 }
 
 void yyerror(const char *s) {
     is_valid = 0;
-    fprintf(stderr, "Erreur syntaxique: %s\n", s);
+    fprintf(stderr, "Erreur syntaxique à la ligne %d, colonne %d : %s\n", yylloc.first_line, yylloc.first_column, s);
 }

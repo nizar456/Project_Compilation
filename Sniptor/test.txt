@@ -3,8 +3,7 @@
 # int result <- x + y ::
 show "Le résultat est : " + result ::
 
-act {
-    when (result gt 10) do {
+act { when (result gt 10) do {
         show "Le résultat est supérieur à 10" ::
     }
     otherwise {

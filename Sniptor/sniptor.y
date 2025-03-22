@@ -107,8 +107,13 @@ expression: expression '+' expression
           | FALSE
           ;
 
-conditional_statement: ACT '{' when_clause otherwise_clause '}'
+conditional_statement: ACT '{' when_clause_list otherwise_clause '}'
+                     | ACT '{' when_clause_list '}'  // Clause otherwise facultative
                      ;
+
+when_clause_list: when_clause_list when_clause
+                | /* vide */
+                ;
 
 when_clause: WHEN '(' expression ')' DO '{' instruction_list '}'
            ;

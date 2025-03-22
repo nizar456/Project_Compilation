@@ -37,6 +37,16 @@ int is_valid = 1;
 %token <chr> CHAR
 %token <str> IDENTIFIER
 
+%left OR XOR
+%left AND
+%left NOT
+%left EQ NEQ
+%left GT GTE LT LTE
+%left '+' '-'
+%left '*' '/' '%'
+%right '^'
+%right NEG
+
 
 %%
 
@@ -50,9 +60,11 @@ instruction_list: instruction_list instruction
 
 instruction: variable_declaration
            | conditional_statement
+           | multiple_choice_statement
            | loop_statement
-           | function_call
-           | procedure_call
+           | function_declaration
+           | procedure_declaration
+           | function_procedure_call
            | input_statement
            | output_statement
            | error_handling
@@ -85,6 +97,7 @@ expression: expression '+' expression
           | expression NEQ expression
           | expression EQ expression
           | '(' expression ')'
+          | '-' expression %prec NEG
           | IDENTIFIER
           | NUMBER
           | REAL
@@ -144,11 +157,8 @@ parameter_list: parameter_list ',' parameter
 parameter: type IDENTIFIER
          ;
 
-function_call: IDENTIFIER '(' argument_list ')' END_INSTR
+function_procedure_call: IDENTIFIER '(' argument_list ')' END_INSTR
              ;
-
-procedure_call: IDENTIFIER '(' argument_list ')' END_INSTR
-              ;
 
 argument_list: argument_list ',' argument
              | argument
@@ -189,5 +199,5 @@ int main() {
 
 void yyerror(const char *s) {
     is_valid = 0;
-    fprintf(stderr, "Erreur syntaxique à la ligne %d, colonne %d : %s\n", yylloc.first_line, yylloc.first_column, s);
+    fprintf(stderr, "Erreur syntaxique ligne %d, colonne %d : %s\n", yylloc.first_line, yylloc.first_column, s);
 }

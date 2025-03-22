@@ -118,7 +118,8 @@ extern int yydebug;
      NUMBER = 327,
      REAL = 328,
      CHAR = 329,
-     IDENTIFIER = 330
+     IDENTIFIER = 330,
+     NEG = 331
    };
 #endif
 
@@ -136,7 +137,7 @@ typedef union YYSTYPE
 
 
 /* Line 2058 of yacc.c  */
-#line 140 "sniptor.tab.h"
+#line 141 "sniptor.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

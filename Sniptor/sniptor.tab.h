@@ -127,7 +127,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 9 "sniptor.y"
+#line 11 "sniptor.y"
 
     char *str;  // Pour les chaînes de caractères
     int num;    // Pour les entiers

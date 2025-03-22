@@ -4,6 +4,8 @@
 
 int yylex(void);
 void yyerror(const char *s);
+int is_valid = 1;
+
 %}
 
 %union {
@@ -170,10 +172,16 @@ comment: COMMENT_START TEXT COMMENT_END
 %%
 
 int main() {
-    yyparse();  // Lancer l'analyse syntaxique
+    yyparse();
+    if (is_valid) {
+        printf("Grammaire valide\n");
+    } else {
+        printf("Erreur\n");
+    } 
     return 0;
 }
 
 void yyerror(const char *s) {
+    is_valid = 0;
     fprintf(stderr, "Erreur syntaxique: %s\n", s);
 }

@@ -70,9 +70,11 @@
 
 int yylex(void);
 void yyerror(const char *s);
+int is_valid = 1;
+
 
 /* Line 371 of yacc.c  */
-#line 76 "sniptor.tab.c"
+#line 78 "sniptor.tab.c"
 
 # ifndef YY_NULL
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -189,7 +191,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 387 of yacc.c  */
-#line 9 "sniptor.y"
+#line 11 "sniptor.y"
 
     char *str;  // Pour les chaînes de caractères
     int num;    // Pour les entiers
@@ -198,7 +200,7 @@ typedef union YYSTYPE
 
 
 /* Line 387 of yacc.c  */
-#line 202 "sniptor.tab.c"
+#line 204 "sniptor.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -226,7 +228,7 @@ int yyparse ();
 /* Copy the second part of user declarations.  */
 
 /* Line 390 of yacc.c  */
-#line 230 "sniptor.tab.c"
+#line 232 "sniptor.tab.c"
 
 #ifdef short
 # undef short
@@ -553,14 +555,14 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    41,    42,    45,    46,    47,    48,    49,
-      50,    51,    52,    53,    54,    55,    58,    59,    62,    62,
-      62,    62,    62,    62,    62,    62,    65,    66,    67,    68,
-      69,    70,    71,    72,    73,    74,    75,    76,    77,    78,
-      79,    80,    81,    82,    83,    84,    85,    86,    87,    88,
-      91,    94,    97,   107,   108,   109,   112,   115,   118,   121,
-     124,   141,   144,   147,   148,   149,   152,   155,   158,   158,
-     158,   161,   164,   167
+       0,    40,    40,    43,    44,    47,    48,    49,    50,    51,
+      52,    53,    54,    55,    56,    57,    60,    61,    64,    64,
+      64,    64,    64,    64,    64,    64,    67,    68,    69,    70,
+      71,    72,    73,    74,    75,    76,    77,    78,    79,    80,
+      81,    82,    83,    84,    85,    86,    87,    88,    89,    90,
+      93,    96,    99,   109,   110,   111,   114,   117,   120,   123,
+     126,   143,   146,   149,   150,   151,   154,   157,   160,   160,
+     160,   163,   166,   169
 };
 #endif
 
@@ -1677,7 +1679,7 @@ yyreduce:
     {
       
 /* Line 1792 of yacc.c  */
-#line 1681 "sniptor.tab.c"
+#line 1683 "sniptor.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1909,14 +1911,20 @@ yyreturn:
 
 
 /* Line 2055 of yacc.c  */
-#line 170 "sniptor.y"
+#line 172 "sniptor.y"
 
 
 int main() {
-    yyparse();  // Lancer l'analyse syntaxique
+    yyparse();
+    if (is_valid) {
+        printf("Grammaire valide\n");
+    } else {
+        printf("Erreur\n");
+    } 
     return 0;
 }
 
 void yyerror(const char *s) {
+    is_valid = 0;
     fprintf(stderr, "Erreur syntaxique: %s\n", s);
 }

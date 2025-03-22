@@ -71,60 +71,73 @@ extern int yydebug;
      BOL = 280,
      LST = 281,
      DICT = 282,
-     TEXT = 283,
-     TRUE = 284,
-     FALSE = 285,
-     REPEAT = 286,
-     FOR = 287,
-     WHILE = 288,
-     FROM = 289,
-     TO = 290,
-     WHEN = 291,
-     DO = 292,
-     OTHERWISE = 293,
-     ASSIGN = 294,
-     LBRACKET = 295,
-     RBRACKET = 296,
-     LBRACE = 297,
-     RBRACE = 298,
-     LPAREN = 299,
-     RPAREN = 300,
-     END_INSTR = 301,
-     COLON = 302,
-     RETURN_FUNC = 303,
-     CONST_MARKER = 304,
-     COMMENT_START = 305,
-     COMMENT_END = 306,
-     SYNTAX_HELP = 307,
-     GT = 308,
-     GTE = 309,
-     LT = 310,
-     LTE = 311,
-     EQ = 312,
-     NEQ = 313,
-     SQ = 314,
-     MOD = 315,
-     FACT = 316,
-     POW = 317,
-     ABS = 318,
-     AND = 319,
-     OR = 320,
-     NOT = 321,
-     XOR = 322,
-     STRING = 323,
-     CHAR = 324,
-     NUMBER = 325,
-     REAL = 326,
-     IDENTIFIER = 327,
-     UNKNOWN = 328,
-     NEGATIVE_VALUE_ERROR = 329,
-     ZERO_DIVISION_ERROR = 330
+     TRUE = 283,
+     FALSE = 284,
+     REPEAT = 285,
+     FOR = 286,
+     WHILE = 287,
+     FROM = 288,
+     TO = 289,
+     WHEN = 290,
+     DO = 291,
+     OTHERWISE = 292,
+     ASSIGN = 293,
+     LBRACKET = 294,
+     RBRACKET = 295,
+     LBRACE = 296,
+     RBRACE = 297,
+     LPAREN = 298,
+     RPAREN = 299,
+     END_INSTR = 300,
+     COLON = 301,
+     RETURN_FUNC = 302,
+     CONST_MARKER = 303,
+     COMMENT_START = 304,
+     COMMENT_END = 305,
+     SYNTAX_HELP = 306,
+     GT = 307,
+     GTE = 308,
+     LT = 309,
+     LTE = 310,
+     EQ = 311,
+     NEQ = 312,
+     SQ = 313,
+     MOD = 314,
+     FACT = 315,
+     POW = 316,
+     ABS = 317,
+     AND = 318,
+     OR = 319,
+     NOT = 320,
+     XOR = 321,
+     UNKNOWN = 322,
+     NEGATIVE_VALUE_ERROR = 323,
+     ZERO_DIVISION_ERROR = 324,
+     STRING = 325,
+     TEXT = 326,
+     NUMBER = 327,
+     REAL = 328,
+     CHAR = 329,
+     IDENTIFIER = 330
    };
 #endif
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+{
+/* Line 2058 of yacc.c  */
+#line 9 "sniptor.y"
+
+    char *str;  // Pour les chaînes de caractères
+    int num;    // Pour les entiers
+    double real; // Pour les réels
+    char chr;   // Pour les caractères
+
+
+/* Line 2058 of yacc.c  */
+#line 140 "sniptor.tab.h"
+} YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

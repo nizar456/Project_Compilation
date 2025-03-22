@@ -593,7 +593,7 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "lexer.l"
 #line 2 "lexer.l"
-#include "sniptor.tab.h"  // Inclure le fichier d'en-tête généré par Bison
+#include "sniptor.tab.h"  
 #line 597 "lex.yy.c"
 #line 598 "lex.yy.c"
 
@@ -1150,7 +1150,7 @@ YY_RULE_SETUP
 case 56:
 YY_RULE_SETUP
 #line 75 "lexer.l"
-{ return yytext[0]; // Retourne directement le caractère pour les opérateurs}  
+{ return yytext[0]; }  
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
@@ -1211,33 +1211,33 @@ case 68:
 /* rule 68 can match eol */
 YY_RULE_SETUP
 #line 90 "lexer.l"
-{ yylval.str = strdup(yytext); return STRING; // Retourne une chaîne de caractères}  
+{ yylval.str = strdup(yytext); return STRING; }  
 	YY_BREAK
 case 69:
 /* rule 69 can match eol */
 YY_RULE_SETUP
 #line 91 "lexer.l"
-{ yylval.chr = yytext[1]; return CHAR; // Retourne un caractère}         
+{ yylval.chr = yytext[1]; return CHAR; }         
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
 #line 93 "lexer.l"
-{ yylval.num = atoi(yytext); return NUMBER; // Retourne un entier}    
+{ yylval.num = atoi(yytext); return NUMBER; }    
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
 #line 94 "lexer.l"
-{ yylval.real = atof(yytext); return REAL; // Retourne un réel}     
+{ yylval.real = atof(yytext); return REAL; }     
 	YY_BREAK
 case 72:
 YY_RULE_SETUP
 #line 96 "lexer.l"
-{ yylval.id = strdup(yytext); return IDENTIFIER; // Retourne un identifiant} 
+{ yylval.str = strdup(yytext); return IDENTIFIER; } 
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
 #line 97 "lexer.l"
-{ yylval.str = strdup(yytext); return TEXT; // entre les commantaires} 
+{ yylval.str = strdup(yytext); return TEXT; } 
 	YY_BREAK
 case 74:
 /* rule 74 can match eol */
@@ -1248,7 +1248,7 @@ YY_RULE_SETUP
 case 75:
 YY_RULE_SETUP
 #line 101 "lexer.l"
-{ return UNKNOWN; // Retourne un token inconnu pour les caractères non reconnus}  
+{ return UNKNOWN; }  
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
@@ -2264,6 +2264,6 @@ void yyfree (void * ptr )
 
 
 int main() {
-    yylex();  // Lancer l'analyse lexicale
+    yylex();  
     return 0;
 }

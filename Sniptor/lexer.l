@@ -1,5 +1,5 @@
 %{
-#include "sniptor.tab.h"  // Inclure le fichier d'en-tête généré par Bison
+#include "sniptor.tab.h"  
 %}
 
 %option noyywrap
@@ -72,7 +72,7 @@
 "eq"            { return EQ; }
 "neq"           { return NEQ; }
 
-[+\-*/=]        { return yytext[0]; // Retourne directement le caractère pour les opérateurs}  
+[+\-*/=]        { return yytext[0]; }  
 "sq"            { return SQ; }
 "%"             { return MOD; }
 "!"             { return FACT; }
@@ -87,22 +87,22 @@
 "NegativeValueError" { return NEGATIVE_VALUE_ERROR; }
 "ZeroDivisionError"  { return ZERO_DIVISION_ERROR; }
 
-\"[^\"]*\"      { yylval.str = strdup(yytext); return STRING; // Retourne une chaîne de caractères}  
-\'[^\']\'       { yylval.chr = yytext[1]; return CHAR; // Retourne un caractère}         
+\"[^\"]*\"      { yylval.str = strdup(yytext); return STRING; }  
+\'[^\']\'       { yylval.chr = yytext[1]; return CHAR; }         
 
-[0-9]+          { yylval.num = atoi(yytext); return NUMBER; // Retourne un entier}    
-[0-9]+\.?[0-9]* { yylval.real = atof(yytext); return REAL; // Retourne un réel}     
+[0-9]+          { yylval.num = atoi(yytext); return NUMBER; }    
+[0-9]+\.?[0-9]* { yylval.real = atof(yytext); return REAL; }     
 
-[a-zA-Z_][a-zA-Z0-9_]* { yylval.id = strdup(yytext); return IDENTIFIER; // Retourne un identifiant} 
-[a-zA-Z0-9_]* { yylval.str = strdup(yytext); return TEXT; // entre les commantaires} 
+[a-zA-Z_][a-zA-Z0-9_]* { yylval.str = strdup(yytext); return IDENTIFIER; } 
+[a-zA-Z0-9_]* { yylval.str = strdup(yytext); return TEXT; } 
 
 [ \t\n\r]+      { /* Ignore les espaces, tabulations et retours à la ligne */ }
 
-.               { return UNKNOWN; // Retourne un token inconnu pour les caractères non reconnus}  
+.               { return UNKNOWN; }  
 
 %%
 
 int main() {
-    yylex();  // Lancer l'analyse lexicale
+    yylex();  
     return 0;
 }

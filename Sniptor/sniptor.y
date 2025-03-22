@@ -1,20 +1,35 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+
+int yylex(void);
+void yyerror(const char *s);
 %}
+
+%union {
+    char *str;  // Pour les chaînes de caractères
+    int num;    // Pour les entiers
+    double real; // Pour les réels
+    char chr;   // Pour les caractères
+}
 
 // Déclaration des tokens
 %token COMPLEXITY EXPLAIN PROTECT CAPTURE RAISE
 %token CONTAINS SIZE ACT CASE CUT SKIP
 %token CREATE FUNCTION PROCEDURE TYPE SHOW ENTER
-%token INT FLT CHR DBL STR BOL LST DICT TEXT
+%token INT FLT CHR DBL STR BOL LST DICT 
 %token TRUE FALSE REPEAT FOR WHILE FROM TO
 %token WHEN DO OTHERWISE ASSIGN LBRACKET RBRACKET
 %token LBRACE RBRACE LPAREN RPAREN END_INSTR COLON
 %token RETURN_FUNC CONST_MARKER COMMENT_START COMMENT_END SYNTAX_HELP 
 %token GT GTE LT LTE EQ NEQ SQ MOD FACT POW ABS
-%token AND OR NOT XOR STRING CHAR NUMBER REAL IDENTIFIER UNKNOWN
+%token AND OR NOT XOR UNKNOWN
 %token NEGATIVE_VALUE_ERROR ZERO_DIVISION_ERROR
+%token <str> STRING TEXT
+%token <num> NUMBER
+%token <real> REAL
+%token <chr> CHAR
+%token <str> IDENTIFIER
 
 
 %%

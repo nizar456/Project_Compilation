@@ -1,1 +1,14 @@
-# bol check <- 10 gt 5 AND 5 lt 3 ::
+create int function multiply(int a, int b) {
+    result <- a * b ::
+    => result ::
+}
+
+# int product <- multiply(3, 4) ::
+show "Le produit est : " + product ::
+
+create procedure print_sum(int a, int b) {
+    sum <- a + b ::
+    show "La somme est : " + sum ::
+}
+
+print_sum(5, 7) ::

@@ -90,10 +90,10 @@ extern int yydebug;
      RPAREN = 299,
      END_INSTR = 300,
      COLON = 301,
-     RETURN_FUNC = 302,
-     CONST_MARKER = 303,
-     COMMENT_START = 304,
-     COMMENT_END = 305,
+     COMMA = 302,
+     RETURN_FUNC = 303,
+     CONST_MARKER = 304,
+     COMMENT = 305,
      SYNTAX_HELP = 306,
      GT = 307,
      GTE = 308,
@@ -114,12 +114,11 @@ extern int yydebug;
      NEGATIVE_VALUE_ERROR = 323,
      ZERO_DIVISION_ERROR = 324,
      STRING = 325,
-     TEXT = 326,
-     NUMBER = 327,
-     REAL = 328,
-     CHAR = 329,
-     IDENTIFIER = 330,
-     NEG = 331
+     NUMBER = 326,
+     REAL = 327,
+     CHAR = 328,
+     IDENTIFIER = 329,
+     NEG = 330
    };
 #endif
 
@@ -137,7 +136,7 @@ typedef union YYSTYPE
 
 
 /* Line 2058 of yacc.c  */
-#line 141 "sniptor.tab.h"
+#line 140 "sniptor.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

@@ -26,12 +26,12 @@ int is_valid = 1;
 %token INT FLT CHR DBL STR BOL LST DICT 
 %token TRUE FALSE REPEAT FOR WHILE FROM TO
 %token WHEN DO OTHERWISE ASSIGN LBRACKET RBRACKET
-%token LBRACE RBRACE LPAREN RPAREN END_INSTR COLON
-%token RETURN_FUNC CONST_MARKER COMMENT_START COMMENT_END SYNTAX_HELP 
+%token LBRACE RBRACE LPAREN RPAREN END_INSTR COLON COMMA
+%token RETURN_FUNC CONST_MARKER COMMENT SYNTAX_HELP 
 %token GT GTE LT LTE EQ NEQ SQ MOD FACT POW ABS
 %token AND OR NOT XOR UNKNOWN
 %token NEGATIVE_VALUE_ERROR ZERO_DIVISION_ERROR
-%token <str> STRING TEXT
+%token <str> STRING 
 %token <num> NUMBER
 %token <real> REAL
 %token <chr> CHAR
@@ -59,12 +59,13 @@ instruction_list: instruction_list instruction
                 ;
 
 instruction: variable_declaration
+           | variable_affectation
            | conditional_statement
            | multiple_choice_statement
            | loop_statement
            | function_declaration
            | procedure_declaration
-           | function_procedure_call
+           | procedure_call
            | input_statement
            | output_statement
            | error_handling
@@ -75,6 +76,9 @@ instruction: variable_declaration
 
 variable_declaration: type IDENTIFIER ASSIGN expression END_INSTR
                     | CONST_MARKER type IDENTIFIER ASSIGN expression END_INSTR
+                    ;
+
+variable_affectation: IDENTIFIER ASSIGN expression END_INSTR
                     ;
 
 type: INT | FLT | CHR | DBL | STR | BOL | LST | DICT
@@ -105,6 +109,7 @@ expression: expression '+' expression
           | CHAR
           | TRUE
           | FALSE
+          | function_call
           ;
 
 conditional_statement: ACT LBRACE when_clause_list otherwise_clause RBRACE
@@ -125,7 +130,7 @@ multiple_choice_statement: ACT LPAREN IDENTIFIER RPAREN LBRACE case_list RBRACE
                          ;
 
 case_list: case_list CASE NUMBER COLON instruction_list CUT
-         | OTHERWISE ':' instruction_list CUT
+         | OTHERWISE COLON instruction_list CUT
          ;
 
 loop_statement: REPEAT LBRACE for_loop RBRACE
@@ -154,7 +159,7 @@ function_declaration: CREATE type FUNCTION IDENTIFIER LPAREN parameter_list RPAR
 procedure_declaration: CREATE PROCEDURE IDENTIFIER LPAREN parameter_list RPAREN LBRACE instruction_list RBRACE
                     ;
 
-parameter_list: parameter_list ',' parameter
+parameter_list: parameter_list COMMA parameter
               | parameter
               | 
               ;
@@ -162,10 +167,13 @@ parameter_list: parameter_list ',' parameter
 parameter: type IDENTIFIER
          ;
 
-function_procedure_call: IDENTIFIER LPAREN argument_list RPAREN END_INSTR
+procedure_call: IDENTIFIER LPAREN argument_list RPAREN END_INSTR
+              ;
+
+function_call: IDENTIFIER LPAREN argument_list RPAREN
              ;
 
-argument_list: argument_list ',' argument
+argument_list: argument_list COMMA argument
              | argument
              | 
              ;
@@ -185,7 +193,7 @@ explain_statement: EXPLAIN LBRACE instruction_list RBRACE
 complexity_statement: COMPLEXITY LBRACE instruction_list RBRACE
                     ;
 
-comment: COMMENT_START TEXT COMMENT_END
+comment: COMMENT
        ;
 
 %%

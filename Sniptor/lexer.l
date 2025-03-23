@@ -61,10 +61,14 @@ void update_position();
 ")"             { return RPAREN; }
 "::"            { return END_INSTR; }
 ":"             { return COLON; }
+","             { return COMMA; }
 "=>"            { return RETURN_FUNC; }
 "#"             { return CONST_MARKER; }
-"\[\^"          { return COMMENT_START; }
-"\^\]"          { return COMMENT_END; }
+"\[\^"([^\^]|\^[^\]])*"\^\]" {
+    yylval.str = strdup(yytext); // Capture tout le commentaire comme une chaîne
+    update_position();
+    return COMMENT;
+}
 "--"            { return SYNTAX_HELP; }
 
 "gt"            { return GT; }
@@ -96,7 +100,6 @@ void update_position();
 [0-9]+\.?[0-9]* { yylval.real = atof(yytext); update_position(); return REAL; }     
 
 [a-zA-Z_][a-zA-Z0-9_]* { yylval.str = strdup(yytext); update_position(); return IDENTIFIER; } 
-[a-zA-Z0-9_]* { yylval.str = strdup(yytext); update_position(); return TEXT; } 
 
 \n              { yylloc.first_line++; yylloc.first_column = 1; }
 [ \t\r]+        { yylloc.first_column += yyleng; }

@@ -1,18 +1,1 @@
-# int x <- 10 ::
-# int y <- 5 ::
-# int result <- x + y ::
-show "Le résultat est : " + result ::
-
-act { when (result gt 10) do {
-        show "Le résultat est supérieur à 10" ::
-    }
-    otherwise {
-        show "Le résultat est inférieur ou égal à 10" ::
-    }
-}
-
-repeat {
-    for (i from 1 to 5) do {
-        show "Itération : " + i ::
-    }
-}
+# bol check <- 10 gt 5 AND 5 lt 3 ::

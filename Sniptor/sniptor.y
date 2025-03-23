@@ -55,7 +55,7 @@ program: instruction_list
        ;
 
 instruction_list: instruction_list instruction
-                | /* vide */
+                |
                 ;
 
 instruction: variable_declaration
@@ -96,7 +96,7 @@ expression: expression '+' expression
           | expression LTE expression
           | expression NEQ expression
           | expression EQ expression
-          | '(' expression ')'
+          | LPAREN expression RPAREN
           | '-' expression %prec NEG
           | IDENTIFIER
           | NUMBER
@@ -107,39 +107,39 @@ expression: expression '+' expression
           | FALSE
           ;
 
-conditional_statement: ACT '{' when_clause_list otherwise_clause '}'
-                     | ACT '{' when_clause_list '}'  // Clause otherwise facultative
+conditional_statement: ACT LBRACE when_clause_list otherwise_clause RBRACE
+                     | ACT LBRACE when_clause_list RBRACE  
                      ;
 
 when_clause_list: when_clause_list when_clause
-                | /* vide */
+                | 
                 ;
 
-when_clause: WHEN '(' expression ')' DO '{' instruction_list '}'
+when_clause: WHEN LPAREN expression RPAREN DO LBRACE instruction_list RBRACE
            ;
 
-otherwise_clause: OTHERWISE '{' instruction_list '}'
+otherwise_clause: OTHERWISE LBRACE instruction_list RBRACE
                 ;
 
-multiple_choice_statement: ACT '(' IDENTIFIER ')' '{' case_list '}'
+multiple_choice_statement: ACT LPAREN IDENTIFIER RPAREN LBRACE case_list RBRACE
                          ;
 
-case_list: case_list CASE NUMBER ':' instruction_list CUT
+case_list: case_list CASE NUMBER COLON instruction_list CUT
          | OTHERWISE ':' instruction_list CUT
          ;
 
-loop_statement: REPEAT '{' for_loop '}'
-              | REPEAT '{' while_loop '}'
-              | REPEAT '{' do_while_loop '}'
+loop_statement: REPEAT LBRACE for_loop RBRACE
+              | REPEAT LBRACE while_loop RBRACE
+              | REPEAT LBRACE do_while_loop RBRACE
               ;
 
-for_loop: FOR '(' IDENTIFIER FROM NUMBER TO NUMBER ')' DO '{' instruction_list '}'
+for_loop: FOR LPAREN IDENTIFIER FROM NUMBER TO NUMBER RPAREN DO LBRACE instruction_list RBRACE
         ;
 
-while_loop: WHILE '(' expression ')' DO '{' instruction_list '}'
+while_loop: WHILE LPAREN expression RPAREN DO LBRACE instruction_list RBRACE
           ;
 
-do_while_loop: DO '{' instruction_list '}' WHILE '(' expression ')'
+do_while_loop: DO LBRACE instruction_list RBRACE WHILE LPAREN expression RPAREN
              ;
 
 input_statement: ENTER STRING END_INSTR
@@ -148,10 +148,10 @@ input_statement: ENTER STRING END_INSTR
 output_statement: SHOW expression END_INSTR
                 ;
 
-function_declaration: CREATE type FUNCTION IDENTIFIER '(' parameter_list ')' '{' instruction_list RETURN_FUNC expression END_INSTR '}'
+function_declaration: CREATE type FUNCTION IDENTIFIER LPAREN parameter_list RPAREN LBRACE instruction_list RETURN_FUNC expression END_INSTR RBRACE
                    ;
 
-procedure_declaration: CREATE PROCEDURE IDENTIFIER '(' parameter_list ')' '{' instruction_list '}'
+procedure_declaration: CREATE PROCEDURE IDENTIFIER LPAREN parameter_list RPAREN LBRACE instruction_list RBRACE
                     ;
 
 parameter_list: parameter_list ',' parameter
@@ -162,7 +162,7 @@ parameter_list: parameter_list ',' parameter
 parameter: type IDENTIFIER
          ;
 
-function_procedure_call: IDENTIFIER '(' argument_list ')' END_INSTR
+function_procedure_call: IDENTIFIER LPAREN argument_list RPAREN END_INSTR
              ;
 
 argument_list: argument_list ',' argument
@@ -173,16 +173,16 @@ argument_list: argument_list ',' argument
 argument: expression
         ;
 
-error_handling: PROTECT '{' instruction_list '}' CAPTURE '(' error_type ')' '{' instruction_list '}'
+error_handling: PROTECT LBRACE instruction_list RBRACE CAPTURE LPAREN error_type RPAREN LBRACE instruction_list RBRACE
               ;
 
 error_type: ZERO_DIVISION_ERROR | NEGATIVE_VALUE_ERROR | IDENTIFIER
           ;
 
-explain_statement: EXPLAIN '{' instruction_list '}'
+explain_statement: EXPLAIN LBRACE instruction_list RBRACE
                  ;
 
-complexity_statement: COMPLEXITY '{' instruction_list '}'
+complexity_statement: COMPLEXITY LBRACE instruction_list RBRACE
                     ;
 
 comment: COMMENT_START TEXT COMMENT_END

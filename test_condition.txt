@@ -1,0 +1,8 @@
+act {
+    when (x gt 5) do {
+        show "x est supérieur à 5" ::
+    }
+    otherwise {
+        show "x est inférieur ou égal à 5" ::
+    }
+}

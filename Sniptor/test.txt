@@ -1,14 +1,6 @@
-create int function multiply(int a, int b) {
-    result <- a * b ::
-    => result ::
-}
+create int function add (int a, int b) {  
+    => a + b ::  
+}  
 
-# int product <- multiply(3, 4) ::
-show "Le produit est : " + product ::
-
-create procedure print_sum(int a, int b) {
-    sum <- a + b ::
-    show "La somme est : " + sum ::
-}
-
-print_sum(5, 7) ::
+int result <- add(5, 3) ::  
+show result ::
